@@ -91,9 +91,9 @@
         "scroll-step": 1
     },
     "custom/logo": {
-        "format": "  ",
+        "format": " マックス ",
         "tooltip": false,
-        "on-click": "rofi -show drun -show-icons"
+        "on-click": "exec ~/.config/hypr/scripts/Power/power.sh"
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -131,9 +131,4 @@
         },
         "tooltip": false
     },
-    "custom/power": {
-        "format": "󰤆",
-        "tooltip": false,
-        "on-click": "~/.config/hypr/scripts/Power/power.sh &"
-    }
 }
