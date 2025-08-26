@@ -1,0 +1,33 @@
+configuration {
+    modi: "drun,run,window,filebrowser";
+    show-icons: true;
+    display-drun: "";
+    display-run: "";
+    display-filebrowser: "";
+    display-window: "缾";
+    scroll-method: "default";
+    element-icon: true;
+    sidebar-mode: true;
+    width: 40%;
+    height: 60%;
+    location: 2; /* Ortadan açılacak */
+    columns: 1;
+    lines: 15;
+    fixed-height: 0;
+    padding: 10;
+    spacing: 5;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+* {
+    background: rgba(0,0,0,0.6);   /* Arka plan yarı saydam */
+    foreground: #FFFFFF;            /* Yazı rengi */
+    selected-background: rgba(100,100,255,0.7);
+    selected-foreground: #FFFFFF;
+    border: 2px;
+    border-color: rgba(255,255,255,0.2);
+    element-text: #FFFFFF;
+    element-icon: #FFFFFF;
+    separatorcolor: rgba(255,255,255,0.1);
+    border-radius: 8px;
+}
