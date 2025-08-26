@@ -116,10 +116,6 @@ window#waybar.hidden {
   background-color: #cba6f7;
 }
 
-#custom-power {
-  background-color: #f2cdcd;
-}
-
 
 tooltip {
   border-radius: 8px;
