@@ -1,0 +1,128 @@
+/* Renk Ayarları */
+* {
+    /* Nord Renk Paleti */
+    nord0:    #2E3440; /* Koyu Mavi */
+    nord1:    #3B4252; /* Koyu Gri */
+    nord2:    #434C5E; /* Orta Gri */
+    nord3:    #4C566A; /* Açık Gri */
+    nord4:    #D8DEE9; /* Açık Mavi */
+    nord5:    #E5E9F0; /* Açık Gri Mavi */
+    nord6:    #ECEFF4; /* Beyaz */
+    nord7:    #8FBCBB; /* Mavi Yeşil */
+    nord8:    #88C0D0; /* Mavi */
+    nord9:    #81A1C1; /* Açık Mavi */
+    nord10:   #5E81AC; /* Koyu Mavi */
+    nord11:   #BF616A; /* Kırmızı */
+    nord12:   #D08770; /* Turuncu */
+    nord13:   #EBCB8B; /* Sarı */
+    nord14:   #A3BE8C; /* Yeşil */
+    nord15:   #B48EAD; /* Mor */
+
+    /* Kendi Renk Paletimiz (Nord'a uygun) */
+    background-color:   @nord0;
+    foreground-color:   @nord4;
+    border-color:       @nord10;
+    selected-color:     @nord10;
+    transparent:        #00000000;
+}
+
+/* Genel Ayarlar */
+configuration {
+    modi: "drun,run,window";
+    display-drun: "Uygulamalar";
+    display-run: "Çalıştır";
+    display-window: "Pencereler";
+    font: "Fira Code 10";
+    show-icons: true;
+    disable-history: false;
+    terminal: "alacritty";
+}
+
+/* Ana Pencere (Transparent hale getirilecek) */
+window {
+    background-color: @transparent;
+    location: center;
+    anchor: center;
+    width: 30%;
+    height: 30%;
+    x-offset: 0;
+    y-offset: 0;
+    border: 2px solid;
+    border-color: @nord10;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Ana Kutu (Transparent hale getirilecek) */
+mainbox {
+    background-color: @transparent;
+    children: [ inputbar, listview ];
+}
+
+/* Giriş Çubuğu */
+inputbar {
+    background-color: @nord1;
+    text-color: @nord4;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 8px;
+    children: [ prompt, entry ];
+}
+
+prompt {
+    enabled: true;
+    background-color: @transparent;
+    text-color: @nord10;
+    font: "Fira Code Bold 10";
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: " > ";
+    text-color: @nord10;
+}
+
+entry {
+    background-color: @transparent;
+    text-color: @nord6;
+    placeholder: "Ara...";
+    placeholder-color: @nord3;
+}
+
+/* Liste Görünümü */
+listview {
+    background-color: @nord1;
+    columns: 1;
+    lines: 10;
+    spacing: 5px;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    margin: 5px;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+element {
+    background-color: @transparent;
+    text-color: @nord6;
+    padding: 8px;
+    border-radius: 5px;
+    children: [ element-icon, element-text ];
+}
+
+element-text {
+    background-color: @transparent;
+    text-color: @nord6;
+}
+
+element-icon {
+    size: 1.5em;
+    background-color: @transparent;
+}
+
+/* Seçili Öğe */
+element selected {
+    background-color: @nord10;
+    text-color: @nord6;
+}
