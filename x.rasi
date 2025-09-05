@@ -1,128 +1,95 @@
-/* Renk Ayarları */
+/* --- Renk Paleti (Ekran Görüntüsüne Göre Uyarlanmıştır) --- */
 * {
-    /* Nord Renk Paleti */
-    nord0:    #2E3440; /* Koyu Mavi */
-    nord1:    #3B4252; /* Koyu Gri */
-    nord2:    #434C5E; /* Orta Gri */
-    nord3:    #4C566A; /* Açık Gri */
-    nord4:    #D8DEE9; /* Açık Mavi */
-    nord5:    #E5E9F0; /* Açık Gri Mavi */
-    nord6:    #ECEFF4; /* Beyaz */
-    nord7:    #8FBCBB; /* Mavi Yeşil */
-    nord8:    #88C0D0; /* Mavi */
-    nord9:    #81A1C1; /* Açık Mavi */
-    nord10:   #5E81AC; /* Koyu Mavi */
-    nord11:   #BF616A; /* Kırmızı */
-    nord12:   #D08770; /* Turuncu */
-    nord13:   #EBCB8B; /* Sarı */
-    nord14:   #A3BE8C; /* Yeşil */
-    nord15:   #B48EAD; /* Mor */
-
-    /* Kendi Renk Paletimiz (Nord'a uygun) */
-    background-color:   @nord0;
-    foreground-color:   @nord4;
-    border-color:       @nord10;
-    selected-color:     @nord10;
-    transparent:        #00000000;
+    bg0:    #282c34; /* Ana Arkaplan Koyu Gri */
+    bg1:    #3c4048; /* Liste Arkaplanı Biraz Daha Açık Gri */
+    fg0:    #abb2bf; /* Genel Metin Rengi Açık Gri */
+    blue:   #61afef; /* Seçili Öğe Mavisi */
+    transparent: #00000000;
 }
 
-/* Genel Ayarlar */
+/* --- Genel Ayarlar --- */
 configuration {
     modi: "drun,run,window";
-    display-drun: "Uygulamalar";
-    display-run: "Çalıştır";
-    display-window: "Pencereler";
-    font: "Fira Code 10";
-    show-icons: true;
+    font: "sans-serif 10"; /* Ekran görüntüsündeki varsayılan sans-serif fonta yakın */
+    show-icons: false; /* Ekran görüntüsünde ikonlar yok */
     disable-history: false;
-    terminal: "alacritty";
+    terminal: "alacritty"; /* Kendi terminalinizi belirtin */
 }
 
-/* Ana Pencere (Transparent hale getirilecek) */
+/* --- Ana Pencere (Hyprland şeffaflığıyla uyumlu) --- */
 window {
-    background-color: @transparent;
+    background-color: @transparent; /* Hyprland şeffaflığı için burası şeffaf kalacak */
     location: center;
     anchor: center;
-    width: 30%;
-    height: 30%;
-    x-offset: 0;
-    y-offset: 0;
-    border: 2px solid;
-    border-color: @nord10;
-    border-radius: 10px;
+    width: 35%; /* Ekran görüntüsündeki genişliğe yakın */
+    border: 0px; /* Kenarlık yok gibi duruyor */
+    border-radius: 8px; /* Köşeler hafif yuvarlak */
     padding: 10px;
 }
 
-/* Ana Kutu (Transparent hale getirilecek) */
+/* --- Ana Kutu --- */
 mainbox {
-    background-color: @transparent;
+    background-color: @transparent; /* Hyprland şeffaflığı için burası şeffaf kalacak */
     children: [ inputbar, listview ];
 }
 
-/* Giriş Çubuğu */
+/* --- Giriş Çubuğu --- */
 inputbar {
-    background-color: @nord1;
-    text-color: @nord4;
-    border-radius: 8px;
-    margin: 5px;
-    padding: 8px;
+    background-color: @bg0; /* Görüntüdeki arama çubuğunun arkaplanı */
+    text-color: @fg0;
+    border-radius: 5px; /* Giriş çubuğu köşeleri hafif yuvarlak */
+    margin: 0 0 10px 0; /* Alt kısımda boşluk */
+    padding: 12px;
     children: [ prompt, entry ];
 }
 
 prompt {
     enabled: true;
-    background-color: @transparent;
-    text-color: @nord10;
-    font: "Fira Code Bold 10";
-}
-
-textbox-prompt-colon {
-    expand: false;
-    str: " > ";
-    text-color: @nord10;
+    text-color: @fg0;
+    font: "sans-serif 10 bold"; /* Prompt biraz daha kalın gibi */
 }
 
 entry {
     background-color: @transparent;
-    text-color: @nord6;
+    text-color: @fg0;
     placeholder: "Ara...";
-    placeholder-color: @nord3;
+    placeholder-color: @fg0;
 }
 
-/* Liste Görünümü */
+/* --- Liste Görünümü --- */
 listview {
-    background-color: @nord1;
+    background-color: @bg0; /* Liste arkaplanı da koyu renk */
     columns: 1;
-    lines: 10;
     spacing: 5px;
-    cycle: true;
-    dynamic: true;
     scrollbar: false;
-    margin: 5px;
-    border-radius: 8px;
+    margin: 0;
+    border-radius: 5px; /* Liste kutusunun köşeleri yuvarlak */
     padding: 5px;
 }
 
 element {
     background-color: @transparent;
-    text-color: @nord6;
-    padding: 8px;
-    border-radius: 5px;
-    children: [ element-icon, element-text ];
+    text-color: @fg0;
+    padding: 10px;
+    border-radius: 4px; /* Elemanların kendi yuvarlak köşeleri */
+    children: [ element-text ]; /* İkonlar olmadığı için sadece metin */
 }
 
 element-text {
     background-color: @transparent;
-    text-color: @nord6;
+    text-color: @fg0;
+    horizontal-align: 0; /* Metin sola hizalı */
 }
 
-element-icon {
-    size: 1.5em;
-    background-color: @transparent;
-}
-
-/* Seçili Öğe */
+/* --- Seçili Öğe --- */
 element selected {
-    background-color: @nord10;
-    text-color: @nord6;
+    background-color: @blue; /* Ekran görüntüsündeki mavi vurgu */
+    text-color: @bg0; /* Seçili metin koyu arkaplanda açık renk */
+}
+
+/* --- Scrollbar (eğer aktif olursa) --- */
+scrollbar {
+    handle {
+        background-color: @blue;
+    }
 }
