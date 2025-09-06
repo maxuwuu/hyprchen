@@ -1,93 +1,207 @@
+
+
+/* ---- Configuration ---- */
+configuration {
+    modi:                    "drun,run,filebrowser";
+    show-icons:              true;
+    display-drun:            " apps";
+    display-run:             " term";
+    display-filebrowser:     " files";
+    display-window:          " window";
+    drun-display-format:     "{name}";
+    hover-select:            true;
+    me-select-entry:         "MouseSecondary";
+    me-accept-entry:         "MousePrimary";
+    window-format:           "{w} · {c} · {t}";
+}
+
+/* ---- Load wallust colors ---- */
+@theme "~/.config/rofi/wallust/colors-rofi.rasi"
+
+/* ---- Global Properties ---- */
 * {
-    font:   "FiraCode Nerd Font Medium 12";
-
-    bg0:     #2E3440;
-    bg1:     #3B4252;
-    fg0:     #D8DEE9;
-
-    accent-color:     #88C0D0;
-    urgent-color:     #EBCB8B;
-
-    background-color:   transparent;
-    text-color:         @fg0;
-
-    margin:     0;
-    padding:    0;
-    spacing:    0;
+    background-alt:          @color1;
+    selected:                @color12;
+    active:                  @color11;
+    urgent:                  red;
+    text-selected:           @background;
+    text-color:              @foreground;
+    border-color:            @selected;
 }
 
+/* ---- Window ---- */
 window {
-    location:   center;
-    width:      480;
-
-    background-color:   @bg0;
+    enabled:                 true;
+    fullscreen:              false;
+    transparency:            "real";
+    cursor:                  "default";
+    spacing:                 0px;
+    border:                  2px;
+    border-radius:           0px; 
+    location:                center;
+    anchor:                  center;
+    width:                   40%; 
+    background-color:        #1a1a1a99;
 }
 
+/* ----- Main Box ----- */
+mainbox {
+    enabled:                 true;
+    orientation:             vertical;
+    children:                [ "inputbar", "listbox" ];
+    background-color:        transparent;
+}
+
+/* ---- Inputbar ---- */
 inputbar {
-    spacing:    8px;
-    padding:    8px;
-
-    background-color:   @bg1;
+    enabled:                 true;
+    padding:                 8px; 
+    margin:                  10px;
+    background-color:        transparent;
+    border-radius:           0px; 
+    orientation:             horizontal;
+    children:                ["entry"];
+  
 }
 
-prompt, entry, element-icon, element-text {
-    vertical-align: 0.5;
+/* ---- Entry input ---- */
+entry {
+    enabled:                 true;
+    expand:                  true; 
+    width:                   100%; 
+    padding:                 8px; 
+    border-radius:           0px; 
+    background-color:        transparent;
+    text-color:              inherit;
+    cursor:                  text;
+    placeholder:             "Search ";
+    placeholder-color:       inherit;
 }
 
-prompt {
-    text-color: @accent-color;
+/* ---- Listbox ---- */
+listbox {
+    spacing:                 0px; 
+    padding:                 0px 10px 10px 10px; 
+    background-color:        transparent;
+    orientation:             vertical;
+    children:                [ "message", "listview" ];
 }
 
-textbox {
-    padding:            8px;
-    background-color:   @bg1;
-}
-
+/* ---- Listview ---- */
 listview {
-    padding:    4px 0;
-    lines:      8;
-    columns:    1;
-
-    fixed-height:   false;
+    enabled:                 true;
+    columns:                 1; 
+    lines:                   7; 
+    cycle:                   true;
+    dynamic:                 true;
+    scrollbar:               false;
+    layout:                  vertical;
+    reverse:                 false;
+    fixed-height:            true;
+    fixed-columns:           true;
+    spacing:                 0px; 
+    padding:                 0px;  
+    background-color:        transparent;
+    border:                  0px;
 }
 
+/* ---- Scrollbar ---- */
+scrollbar {
+    border:                  0px;
+    border-radius:           0px; 
+    background-color:        transparent;
+    handle-color:            @active;
+    handle-width:            2px ;
+    padding:                 0;
+}
+
+
+
+/* ---- Elements ---- */
 element {
-    padding:    8px;
-    spacing:    8px;
+    enabled:                 true;
+    spacing:                 8px; 
+    padding:                 8px; 
+    border-radius:           0px; 
+    background-color:        transparent;
+    cursor:                  pointer;
 }
 
-element normal normal {
-    text-color: @fg0;
+element normal.normal {
+    background-color:        inherit;
+    text-color:              inherit;
+}
+element normal.urgent {
+    background-color:        @urgent;
+    text-color:              @foreground;
 }
 
-element normal urgent {
-    text-color: @urgent-color;
+element-text selected,
+element normal.active {
+    background-color:        @active;
+    text-color:              @foreground;
 }
 
-element normal active {
-    text-color: @accent-color;
+element selected.normal {
+    background-color:        @color11;
+    text-color:              @text-selected;
+}
+element selected.urgent {
+    background-color:        @urgent;
+    text-color:              @text-selected;
+}
+element selected.active {
+    background-color:        @urgent;
+    text-color:              @text-selected;
 }
 
-element alternate active {
-    text-color: @accent-color;
+element alternate.normal {
+    background-color:        transparent;
+    text-color:              inherit;
 }
-
-element selected {
-    text-color: @bg0;
+element alternate.urgent {
+    background-color:        transparent;
+    text-color:              inherit;
 }
-
-element selected normal, element selected active {
-    background-color:   @accent-color;
-}
-
-element selected urgent {
-    background-color:   @urgent-color;
+element alternate.active {
+    background-color:        transparent;
+    text-color:              inherit;
 }
 
 element-icon {
-    size:   0.8em;
+    background-color:        transparent;
+    text-color:              inherit;
+    size:                    28px; 
+    cursor:                  inherit;
 }
 
 element-text {
-    text-color: inherit;
+    background-color:        transparent;
+    text-color:              inherit;
+    cursor:                  inherit;
+    vertical-align:          0.5;
+    horizontal-align:        0.0;
+}
+
+/* ---- Message ---- */
+message {
+    background-color:        @background;
+    border:                  0px;
+}
+
+textbox {
+    margin:                  10px;
+    padding:                 8px; 
+    border-radius:           0px; 
+    background-color:        @active;
+    text-color:              @foreground;
+    vertical-align:          0.5;
+    horizontal-align:        0.5;
+}
+
+error-message {
+    padding:                 8px; 
+    border-radius:           0px; 
+    background-color:        @background;
+    text-color:              @foreground;
 }
