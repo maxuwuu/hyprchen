@@ -1,0 +1,26 @@
+
+INSTALL MY HYPRLAND CONFIG 
+
+FOR ARCH : 
+sudo pacman -S ttf-roboto ttf-jetbrains-mono-nerd  ttf-font-awesome 
+git clone https://github.com/EliverLara/Nordic.git
+https://github.com/maxuwuu/hypr
+
+FOR FEDORA : 
+sudo dnf install google-roboto-fonts fontawesome-fonts 
+
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+mkdir -p ~/.local/share/fonts
+unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+fc-cache -fv  
+https://github.com/maxuwuu/hypr
+git clone https://github.com/EliverLara/Nordic.git
+
+FOR UBUNTU : 
+sudo apt install fonts-roboto fonts-roboto-condensed fonts-font-awesome 
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+mkdir -p ~/.local/share/fonts
+unzip JetBrainsMono.zip -d ~/.local/share/fonts/
+fc-cache -fv  
+https://github.com/maxuwuu/hypr
+git clone https://github.com/EliverLara/Nordic.git

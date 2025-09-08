@@ -1,2 +1,0 @@
-sudo pacman -S ttf-roboto ttf-jetbrains-mono-nerd  ttf-font-awesome 
-git clone https://github.com/EliverLara/Nordic.git
