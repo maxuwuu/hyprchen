@@ -21,7 +21,7 @@ makepkg -si
 and install  hyprland and Dependencies: 
 ```bash
 yay -S  hyprland hyprpicker rofi-wayland waybar hyprpaper ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome starship kvantum qt5ct qt6ct fastfetch
-
+git clone https://github.com/maxuwuu/walls
 ```
 
 <br>
@@ -34,7 +34,8 @@ sudo dnf install hyprland hyprland-devel rofi-wayland waybar google-roboto-fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
 mkdir -p ~/.local/share/fonts
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/
-fc-cache -fv  
+fc-cache -fv
+git clone https://github.com/maxuwuu/walls
 ```
 
 <br>
@@ -63,6 +64,7 @@ wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsM
 mkdir -p ~/.local/share/fonts
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/
 fc-cache -fv  
+git clone https://github.com/maxuwuu/walls
 ```
 
 </details>
