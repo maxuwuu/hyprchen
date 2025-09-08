@@ -20,7 +20,7 @@ makepkg -si
 ```
 and install  hyprland and Dependencies: 
 ```bash
-yay -S  hyprland hyprpicker rofi-wayland waybar hyprpaper ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome starship kvantum qt5ct qt6ct fastfetch
+yay -S  hyprland hyprpicker rofi-wayland waybar hyprpaper ttf-roboto ttf-jetbrains-mono-nerd ttf-font-awesome starship kvantum qt5ct qt6ct fastfetch firefox
 git clone https://github.com/maxuwuu/walls
 ```
 
