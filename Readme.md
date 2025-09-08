@@ -1,5 +1,7 @@
 # Hello , This wiki has everything you need to use my hyprland settings.
 
+---
+
 ## Installation
 Install Hyprland and Dependencies:
 <details>
@@ -106,3 +108,7 @@ Move the files in their required directory:-
 cd ~/Nordic/kde
 cp -r kvantum ~/.config/kvantum/
 ```
+
+--- 
+
+x
