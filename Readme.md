@@ -3,7 +3,7 @@
 ## Installation
 Install Hyprland and Dependencies:
 <details>
-<summary><b style="font-size:20px">Install Hyprland and  </b></summary>
+<summary><b style="font-size:20px">Install Hyprland and Dependencies </b></summary>
 
 <br>
 <b>Arch</b>
