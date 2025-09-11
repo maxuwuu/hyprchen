@@ -1,129 +1,98 @@
+/*
+ * ROFI Red Theme
+ *
+ */
+
 configuration {
-  modes: "window,drun,run,ssh";
-  font: "Cantarell 12 ";
-  drun-display-format: "{name}";
+  font: "JetBrainsMono Nerd Font Propo Medium 11";
+
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
 }
 
 * {
-  // general
-  bg: #282828;
-  bgt: #28282895;
-  t: transparent;
-  fg: #d4be98;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 
-  selected-bg: @fg;
-  selected-fg: @bg;
+  bg: #18181b;
+  bg-alt: #27272a;
+  fg: #eeeeee;
+  fg-alt: #777777;
+  accent: #ef4444;
 
-  // for windows
-  active: #a9b665;
-  urgent: #fb4934;
+  background-color: @bg;
+  text-color: @fg-alt;
 }
 
 window {
-  fullscreen: true;
-  padding: 35% 30%;       // you might want to ajust these to resize rofi.
+  padding: 6px;
   transparency: "real";
-  background-color: @bgt;
-  border-color: @t;
+  width: 600;
 }
 
-listview {
-  border: 0 0 0 0;
-  padding: 23 0 0;
-  scrollbar: false;
-}
-
-scrollbar {
-    width:        4px;
-    border:       0;
-    handle-color: @fg;
-    handle-width: 8px;
-    padding:      0 5;
-}
-
-entry {
-    placeholder: "";
-}
-
-// less interesting stuff {{{
-
-// using elements from:
-// https://github.com/bardisty/gruvbox-rofi/blob/master/gruvbox-common.rasi
-
-textbox {
-    text-color: @fg;
-}
-
-element {
-    border:  0;
-    padding: 2px;
-}
-element.normal.normal {
-    background-color: @t;
-    text-color:       @fg;
-}
-element.normal.urgent {
-    background-color: @t;
-    text-color:       @urgent;
-}
-element.normal.active {
-    background-color: @t;
-    text-color:       @active;
-}
-element.selected.normal {
-    background-color: @selected-bg;
-    text-color:       @selected-fg;
-}
-element.selected.urgent {
-    background-color: @selected-bg;
-    text-color:       @urgent;
-}
-element.selected.active {
-    background-color: @selected-bg;
-    text-color:       @selected-fg;
-}
-element.alternate.normal {
-    background-color: @t;
-    text-color:       @fg;
-}
-element.alternate.urgent {
-    background-color: @t;
-    text-color:       @urgent;
-}
-element.alternate.active {
-    background-color: @t;
-    text-color:       @active;
-}
-
-sidebar {
-    border:       2px 0 0;
-    border-color: @fg;
+mainbox {
+  children: [inputbar, listview];
 }
 
 inputbar {
-    spacing:    0;
-    text-color: @fg;
-    padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+  children: [prompt, entry];
 }
 
-case-indicator,
-entry,
-prompt,
-button {
-    spacing:    0;
-    text-color: @fg;
+entry {
+  padding: 12px;
 }
 
-button.selected {
-    background-color: @bg;
-    text-color:       @fg;
+prompt {
+  background-color: inherit;
+  padding: 12px;
 }
 
-textbox-prompt-sep {
-    expand:     false;
-    str:        ":";
-    text-color: @fg;
-    margin:     0 0.3em 0 0;
+listview {
+  lines: 8;
+  scrollbar: true;
 }
-// }}}
+
+scrollbar {
+  background-color: @bg-alt;
+  handle-color: @accent;
+  margin: 0 0 0 6px;
+}
+
+element {
+  children: [element-icon, element-text];
+}
+
+element-icon {
+  padding: 10px;
+}
+
+element-text {
+  padding: 10px 0;
+}
+
+element-text selected {
+  background-color: @bg-alt;
+  text-color: @fg;
+  border-radius: 0 4px 4px 0;
+}
+
+element-icon selected {
+  background-color: @bg-alt;
+  border-radius: 4px 0 0 4px;
+}
