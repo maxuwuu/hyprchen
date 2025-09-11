@@ -51,6 +51,8 @@ cmake ..
 make
 sudo make install
 
+curl -sS https://starship.rs/install.sh | sh
+
 git clone https://github.com/hyprwm/hyprpaper.git
 cd hyprpaper
 make all
